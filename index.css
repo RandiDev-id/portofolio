@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  overflow: hidden;
+  position: relative; /* Penting untuk penataan posisi */
+}
+
+.card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%; /* Gambar memenuhi bagian atas kartu */
+  object-fit: cover;
+  
+  /* Masking gradien halus dari atas ke bawah */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+  
+  /* Efek blend agar warna gambar lebur dengan warna latar kartu */
+  mix-blend-mode: luminosity; 
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Biar teks judul dan deskripsi selalu muncul di atas gambar */
+.card h3, .card p {
+  position: relative;
+  z-index: 2;
+}
